@@ -111,31 +111,19 @@ barba.init({
       // update the menu based on user navigation
       menu.update();
     },
-    afterEnter() {
-
-      // refresh the parallax based on new page content
-      parallax.refresh();
-    },
-    enter(){
     
-    }
   },{
     namespace: 'home',
     beforeEnter() {
       fullPage();
      
-      // document.quertSelector(`#${hash}`).scrollIntoView()
-     
-     
     },
-    afterEnter() {
-       // do something before entering the `contact` namespace
-     
-    }
+   
   }
 ],
  
   transitions: [{
+      name: 'home_ani',
      
        async leave(data) {
         const tl = gsap.timeline();
@@ -156,19 +144,9 @@ barba.init({
         
         
       },
-       
-        
-        
-      
-      
- 
-      
     
-     
-
-       
     }]//transitions
-});
+});//init
 
 
 
