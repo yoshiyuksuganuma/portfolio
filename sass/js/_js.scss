@@ -1,0 +1,83 @@
+@use '../global' as g;
+//jQueryで操作するクラス
+
+#fp-nav {
+    margin-left: 2%!important;
+    z-index: 1!important;
+    left: 0.7%!important;
+  }
+  
+  #fp-nav span {
+    background-color: #fff!important;
+    height: 5px!important;
+    width: 20px!important;
+    border-radius: 0!important;
+    transition: width .5s!important;
+    display: block;
+  }
+  
+  #fp-nav span:last-of-type {
+    margin: 0;
+  
+  }
+  
+  #fp-nav .active span {
+    margin: 0!important;
+    width: 45px!important;
+    transition: width .5s!important;
+  }
+  
+  
+  #fp-nav ul li {
+    margin:0 0 3rem 0!important;
+  
+  }
+
+
+  .moon-efe {
+    opacity: 0;
+    right: -30%;
+  }
+
+  .hero-copy-efe {
+  
+    transform: translatex(-40%);
+    
+  }
+  .hero-sub-copy-efe {
+    
+    transform: translatex(-40%);
+  }
+  .hero-border-efe {
+    
+    transform: translatex(-160%);
+    
+  }
+  .hero-tit-efe {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  .mask {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999999;
+      background-color: rgb(7, 7, 7);
+      transition: transform .5s;
+  }
+
+  .mask-up {
+      transform: translateY(-1200px);
+  }
+
+  .zoom {
+    width: 73%;
+    position: absolute;
+    top: auto;
+    right: 0;
+    height: 100vh;
+    transform: none;
+  }

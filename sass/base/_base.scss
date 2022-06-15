@@ -1,0 +1,42 @@
+@use '../global' as g;
+
+/*  sample */
+@font-face {
+  font-family: "utsukushi";
+  src: url("fonts/02UtsukushiMincho/02UtsukushiMincho.ttf");
+  font-weight: normal;
+}
+
+html {
+  font-size: 62.5%;
+  @media (max-width: 1100px) {
+    font-size: 0.9vw;
+  }
+  @include g.sp {
+    font-size: 1.6vw;
+  }
+}
+
+//webfontちらつき防止
+html.wf-active {
+  visibility: visible;
+}
+
+
+body {
+  background-color: #333;
+  font-size: 1.5rem;
+  color: #ffff;
+  letter-spacing: 0.05em;
+  font-family: futura-pt,utsukushi, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}

@@ -1,0 +1,8 @@
+1.最初にコーディングベースをコピーしプロジェクト名を変更する
+2.ターミナルからnpm init -yを打ち込みpackage.jsonを作成
+3.つづいてnpm i -D sassを打ち込みnode_modulesフォルダを作成
+3.5,dartjs拡張機能の設定画面を開き、画面下部のdartsass.sassBinPathにnode_modules/sass/sass.jsと打ち込みパスを設定する（デフォルトで設定されているはず）
+4.右クリックでsassフォルダをwatch sassに設定する
+5,最初にstyle.scssファイルをセーブすればcssフォルダにstyle.cssファイルが作成されるはず
+6,パーシャルファイルを変更し、正常にstyle.cssファイルが変更されているか確認する。
+7,cssファイルの出力先を変更するときは、dartjs拡張機能の設定画面を開き、画面下部のDartsass: Target Directoryにパスを打ち込む

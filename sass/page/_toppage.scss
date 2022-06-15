@@ -1,0 +1,68 @@
+@use '../global' as g;
+
+.main-bg {
+    background-image: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+  }
+
+//hero 
+
+.hero {
+    position: relative;
+    &__moon {
+    width: 51%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    right: 9%;
+    transition: all .6s ease-in-out;
+    }
+    &__tit {
+    font-size: 6rem;
+    color: #ff5100f1;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: .2em;
+    font-family: futura-pt-bold, sans-serif;
+    transition: all .5s ease-in-out;
+    transition-delay: .1s;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(0%,-50%);
+    }
+  
+  
+}//hero
+
+.contact {
+    &__icons {
+        margin-top: 3%;
+        i {
+        font-size: 4rem;
+        margin-right: 3%;
+        }
+    }
+    &__mail {
+        margin-top: 3%;
+        font-size: 3rem;
+    }
+
+}
+  
+ 
+
+
+
+
+
+
+
+
+

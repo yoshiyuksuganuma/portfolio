@@ -1,0 +1,103 @@
+@use '../global' as g;
+
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  &__border {
+      width: 90px;
+      background-color:#ff5100f1;
+      height: 4px;
+      display: inline-block;
+      transition: all .6s ease-in-out;
+      transition-delay: .1s;
+    }
+    &__border:nth-of-type(1) {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    &__border:nth-of-type(2) {
+      margin-left: 55px;
+      margin-bottom: 22px;  
+  }
+  &__img-wrap {
+      width: 53%;
+      height: 70%;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(74%,-50%);
+      transition: all;
+      background-position: center;
+  }
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__copy-wrap {
+      text-align: left;
+      transition: all 1s ease-in-out;
+      overflow: hidden;
+      left: 11%;
+      position: absolute;
+      top: 50%;
+      transform: translatey(-50%);
+      z-index: 2;
+      }
+      &__copy {
+      font-size: 12rem;
+      font-weight: bold;
+      letter-spacing: .1em;
+      margin-bottom: 2%;
+      position: relative;
+      z-index: 2;
+      transition: all .6s ease-in-out;
+    
+      }
+    
+      &__sub-copy {
+      font-size: 3rem;
+      margin-top: 3%;
+      transition: all .6s ease-in-out;
+      transition-delay: .2s;
+    
+      }
+}//section
+
+
+.works .section__img-wrap {
+  background-image: url('/image/works.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about .section__img-wrap {
+  background-image: url('/image/about.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contact .section__img-wrap {
+  background-image: url('/image/contact.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.about-page .section__img-wrap {
+  background-image: url('/image/about.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.about-page .section__img-wrap {
+  position: absolute;
+  height: 100vh;
+  transform: translate(0%,0%);
+  top: 0;
+  right: 0;
+  width: 60%;
+}
+
+
