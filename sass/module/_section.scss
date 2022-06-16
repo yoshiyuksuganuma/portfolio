@@ -4,6 +4,16 @@
 .section {
   width: 100vw;
   height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+  
+   
+    &__container {
+      width: 100vw;
+  height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
   &__border {
       width: 90px;
       background-color:#ff5100f1;
@@ -26,9 +36,14 @@
       position: absolute;
       top: 50%;
       right: 50%;
-      transform: translate(74%,-50%);
+      transform: translate(80%,-50%);
       transition: all;
       background-position: center;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
   }
 
   &__inner {
@@ -84,14 +99,14 @@
   background-size: cover;
 
 }
-.about-page .section__img-wrap {
+.about-hero .section__img-wrap {
   background-image: url('/image/about.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 
 }
 
-.about-page .section__img-wrap {
+.about-hero .section__img-wrap {
   position: absolute;
   height: 100vh;
   transform: translate(0%,0%);

@@ -6,14 +6,17 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>about</title>
+        <link rel="stylesheet" href="https://use.typekit.net/nkv0qmr.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha512-/AilQf/shuEGfh8c3DoIqcIqHZCKpiImSyt+fxIKJphHiNa6QMPb6AbDly6rkjmGr/5OZd35JtvVkbEKnCZO+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+        
 	</head>
 	<body >
 
         <header class="header">
+            <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
             <button class="burger-btn">
               <span class="burger-btn__bar"></span>
               <span class="burger-btn__bar"></span>
@@ -21,12 +24,16 @@
             </button>
           </header>
 
+
             <main data-barba="wrapper" data-barba-namespace="about">
              <div data-barba="container">
+
                  <!-- <div class="mask"></div> -->
-                 <section class="about-page">
+                 <section class="about-hero">
+                <div class="go-back__wrap"><a class="go-back" href="./index.html#about"><i class="fa-solid fa-arrow-left-long"></i></a></div>
                     <div class="section__inner">
                     <div class="section__copy-wrap">
+
                       <h2 class="section__copy">About Me</h2>
                       <span class="section__border"></span><br>
                       <span class="section__border"></span><br>
@@ -41,44 +48,51 @@
                       </div>
                    
                   </section>
+                  
+                   <!-- about-pro-->
+   <section class="about-pro">
+    <div class="about-pro__inner">
+        <div class="about-pro__img-wrap">
+          <img src="image/profile.png" class="about__img">
+        </div>
+        
+        <div class="about-pro__txt-wrap">
+        <h3 class="about-pro__tit">Profile</h3>
+        <p class="about-pro__txt">
+          氏名: 菅沼 良行（すがぬま よしゆき<br>
+          出身地: 東京都<br>
+          ポートフォリオをご覧いただき誠にありがとうございます！<br>
+          WEBコーダーとして活動している菅沼と申します。<br>
+          WEBサイト制作・コーディング等、お客様のご要望に丁寧かつ迅速に、ご満足いただけるまで誠意を持って対応させていただきます。<br>
 
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- /.about-pro -->
 
+  <section class="skill">
+      <div class="skill__inner">
+        <div id="container"></div>
 
+      
+        
+      </div>
+  </section>
 
-                 <a style="color: #fff; font-size: 10rem;position: relative; display: block;" href="./#about">aboufddddddddddddddt</a>
+                
 
 
                    
              </div>
             </main>
           
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="js/script.js" defer></script>
-                <script src="js/barba.js" defer></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js" integrity="sha512-XOpdFagEEv9XMxN/2EdvFL/PfGtFDjX+AkRznsFHDtdC05YWdkMnz5JZUfrbnEabOQaMc7YNTl2xPbOu3J858Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" crossorigin="anonymous" defer></script>
-                <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
-            
-
-                
-                
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="js/script.js" defer></script>
+            <script src="js/barba.js" defer></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
+            <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
+            <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
 
     </body>
 </html>
-<!-- async enter(data) {
-    const tl = gsap.timeline();
-
-     return tl.to(".about .section__img-wrap", {
-       width: 50 + '%',
-      height: 50 + '%',
-      right: 0,
-      x: 0,
-      y: 0,
-      duration: 0.8, 
-      ease: "sine.inOut"  
-    }).to("#fp-nav", {
-       x: 0,
-      duration: 1.2, // 
-      ease: "sine.inOut"
-    },'-0.2');//発動を0.2ms早める -->

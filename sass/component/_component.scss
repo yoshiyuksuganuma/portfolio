@@ -1,5 +1,19 @@
 @use '../global' as g;
 
+.main-bg {
+    background: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    &--about {
+    background: #080707;
+    }
+    
+  }
+
 
 .link-btn {
     width: 200px;
@@ -75,3 +89,19 @@
       transform: translatex(80px);
     }
   }
+
+  .go-back {
+      font-size: 7rem;
+      color: #fff;
+      display: block;
+      
+     
+      &__wrap {
+          overflow: hidden;
+          position: absolute;
+          left: 3%;
+          top: 10%;
+      }
+  }
+
+  

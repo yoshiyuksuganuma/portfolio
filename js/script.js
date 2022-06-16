@@ -45,7 +45,6 @@ $win.resize(function() {
 
 
 
-
 //スムーススクロール
 
   // $('a[href^="#"]').click(function () {
@@ -58,47 +57,13 @@ $win.resize(function() {
   //   return false;
   // });
 
-
-
-  //fullpage
-    
-  function fullPage() {
-    $('#fullpage').fullpage({
-      anchors: ['top', 'works', 'about', 'contact'],
-        navigation: true,
-        navigationPosition: 'left',
-        scrollingSpeed: 1500,
-        scrollOverflow: true,
-        onLeave: function(index, nextIndex, direction){
-			if(index == 1 && direction =='down'){
-            $('.hero__moon').addClass('moon-efe');
-            $('.hero .hero__tit').addClass('hero-tit-efe');
-            $('.hero .section__copy').addClass('hero-copy-efe');
-            $('.hero .section__sub-copy').addClass('hero-sub-copy-efe');
-            $('.hero .section__border').addClass('hero-border-efe');
-            $('.scrollbar').addClass('scrollbar-efe');
-			}
-			if(index == 2 && direction =='up'){
-                $('.hero__moon').removeClass('moon-efe');
-                $('.hero__tit').removeClass('hero-tit-efe');
-                $('.hero .section__copy').removeClass('hero-copy-efe');
-            $('.hero .section__sub-copy').removeClass('hero-sub-copy-efe');
-            $('.hero .section__border').removeClass('hero-border-efe');
-            $('.scrollbar').removeClass('scrollbar-efe');
-
-			}
-			// else if(index == 2 && direction =='up')
-			//セクション２を上にスクロールしたときに実行されます
-		}
-    });
-  };
-
-  fullPage();
-
-  $('.mask').addClass('mask-up');
+  
 
 
   
+
+  $('.mask').addClass('mask-up');
+
 
 
 barba.init({
@@ -106,46 +71,81 @@ barba.init({
   views: [{
     namespace: 'about',
     beforeEnter() {
-      $.fn.fullpage.destroy('all');
 
       // update the menu based on user navigation
       menu.update();
     },
+    afterEnter(data) {
+     
+    },
     
   },{
     namespace: 'home',
-    beforeEnter() {
-      fullPage();
-     
+    afterEnter(data) {
+      const hash = data.next.url.hash;
+      document.getElementById(hash).scrollIntoView();
     },
    
   }
 ],
- 
-  transitions: [{
-      name: 'home_ani',
-     
-       async leave(data) {
-        const tl = gsap.timeline();
 
-         return tl.to(".about .section__img-wrap", {
-           width: 60 + '%',
-          height: 100 + 'vh',
-          right: 0,
-          x: 0,
-          y: 0,
-          duration: 0.8, 
-          ease: "sine.inOut"  
-        }).to("#fp-nav", {
-           x: -1000,
-          duration: 1.2, // 
-          ease: "sine.inOut"
-        },'-0.2');//発動を0.2ms早める
-        
-        
-      },
-    
-    }]//transitions
+transitions: [
+  {
+    name: 'home',
+    to: { namespace: ['about'] },
+    leave() {
+      const tl = gsap.timeline();
+      return tl.to(".about .section__img-wrap", {
+        width: 60 + '%',
+       height: 100 + 'vh',
+       right: 0,
+       x: 0,
+       y: 0,
+       duration: 0.5, 
+       ease: "cublic.inOut"  
+     }).to(" .main-bg",{
+      background: '#080707',
+      duration: 0.8, 
+      ease: "cublic.inOut"  
+     },'-0.1');
+    },
+    enter() {
+      const tl = gsap.timeline();
+      tl.fromTo(".go-back",1,{
+        x: -200,
+      },{
+       x: 3 * '%',
+       ease: "cublic.inOut"
+      },'-0.3');
+    }
+  
+
+
+  }, {
+    name: 'about',
+    to: { namespace: ['home'] },
+    leave() { 
+      const tl = gsap.timeline();    
+      return tl.to(".about-hero .section__img-wrap", {
+       width: 53 + '%',
+       height: 70 + '%',
+       right: 50 + '%',
+       top: 50 + '%',
+      x: 80 + '%',
+      y: -50 + '%',
+       duration: 0.8, 
+       ease: "cublic.inOut"  
+     }).to(".go-back", {
+     x: -200,
+      duration: 1, 
+      ease: "cublic.inOut"  
+    },'-0.01');
+   },
+ 
+  }
+],
+ 
+ 
 });//init
 
 
