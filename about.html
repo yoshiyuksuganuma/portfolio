@@ -11,9 +11,10 @@
 		<link rel="stylesheet" href="css/style.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="jquery.lineProgressbar.css" />
         
 	</head>
-	<body >
+	<body>
 
         <header class="header">
             <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
@@ -25,11 +26,11 @@
           </header>
 
 
-            <main data-barba="wrapper" data-barba-namespace="about">
+            <main data-barba="wrapper" data-barba-namespace="common">
              <div data-barba="container">
 
                  <!-- <div class="mask"></div> -->
-                 <section class="about-hero">
+                 <section class="common-hero" id="about-hero">
                 <div class="go-back__wrap"><a class="go-back" href="./index.html#about"><i class="fa-solid fa-arrow-left-long"></i></a></div>
                     <div class="section__inner">
                     <div class="section__copy-wrap">
@@ -71,10 +72,20 @@
   </section>
   <!-- /.about-pro -->
 
+  
+
   <section class="skill">
       <div class="skill__inner">
         <div id="container"></div>
+<style>
 
+#container {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+  position: relative;
+}
+</style>
       
         
       </div>
@@ -90,9 +101,13 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="js/script.js" defer></script>
             <script src="js/barba.js" defer></script>
+            <script src="js/progressbar.js"></script>
             <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
             <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
             <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
 
+
+          
+<script src="jquery.lineProgressbar.js"></script>
     </body>
 </html>

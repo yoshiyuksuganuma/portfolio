@@ -1,6 +1,38 @@
 $(function () {
   "usestrict";
 
+  function bar() {
+  var bar = new ProgressBar.Line(container, {
+    strokeWidth: 4,
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#FFEA82',
+    trailColor: '#eee',
+    trailWidth: 1,
+    svgStyle: {width: '100%', height: '100%'},
+    text: {
+    style: {
+      // Text color.
+      // Default: same as stroke color (options.color)
+      color: '#999',
+      position: 'absolute',
+      right: '0',
+      top: '30px',
+      padding: 0,
+      margin: 0,
+      transform: null
+    },
+    autoStyleContainer: false
+    },
+    from: {color: '#FFEA82'},
+    to: {color: '#ED6A5A'},
+    step: (state, bar) => {
+    bar.setText(Math.round(bar.value() * 100) + ' %');
+    }
+  });
+  bar.animate(1.0);  // Number from 0.0 to 1.0
+}
+
 
   const $win = $(window),
     $header = $("#header");
@@ -62,21 +94,20 @@ $win.resize(function() {
 
   
 
-  $('.mask').addClass('mask-up');
+  // $('.mask').addClass('mask-up');
 
 
 
 barba.init({
   
   views: [{
-    namespace: 'about',
+    namespace: 'common',
     beforeEnter() {
-
       // update the menu based on user navigation
       menu.update();
     },
     afterEnter(data) {
-     
+      bar();
     },
     
   },{
@@ -92,10 +123,10 @@ barba.init({
 transitions: [
   {
     name: 'home',
-    to: { namespace: ['about'] },
+    to: { namespace: ['common'] },
     leave() {
       const tl = gsap.timeline();
-      return tl.to(".about .section__img-wrap", {
+      return tl.to(" .section__img-wrap", {
         width: 60 + '%',
        height: 100 + 'vh',
        right: 0,
@@ -126,7 +157,7 @@ transitions: [
     to: { namespace: ['home'] },
     leave() { 
       const tl = gsap.timeline();    
-      return tl.to(".about-hero .section__img-wrap", {
+      return tl.to(".common-hero .section__img-wrap", {
        width: 53 + '%',
        height: 70 + '%',
        right: 50 + '%',
@@ -147,6 +178,9 @@ transitions: [
  
  
 });//init
+
+
+
 
 
 

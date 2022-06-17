@@ -39,6 +39,7 @@
       transform: translate(80%,-50%);
       transition: all;
       background-position: center;
+      box-shadow: 0 80px 140px -40px rgb(0 0 0 / 60%);
       a {
         display: block;
         width: 100%;
@@ -83,6 +84,11 @@
 }//section
 
 
+#works-hero .section__img-wrap {
+  background-image: url('/image/works.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .works .section__img-wrap {
   background-image: url('/image/works.jpg');
   background-repeat: no-repeat;
@@ -99,14 +105,14 @@
   background-size: cover;
 
 }
-.about-hero .section__img-wrap {
+#about-hero .section__img-wrap {
   background-image: url('/image/about.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 
 }
 
-.about-hero .section__img-wrap {
+.common-hero .section__img-wrap {
   position: absolute;
   height: 100vh;
   transform: translate(0%,0%);

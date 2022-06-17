@@ -5,16 +5,16 @@
      <head>
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width,initial-scale=1">
-         <title>about</title>
+         <title>works</title>
          <link rel="stylesheet" href="https://use.typekit.net/nkv0qmr.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
          <link rel="stylesheet" href="css/style.css">
          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
-         <link rel=" stylesheet" type="text/css" href="css/tinytools.progressbar.min.css">
+ 
  
          
      </head>
-     <body id="works">
+     <body >
  
          <header class="header">
              <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
@@ -26,16 +26,16 @@
            </header>
  
  
-             <main data-barba="wrapper" data-barba-namespace="about">
+             <main data-barba="wrapper" data-barba-namespace="common">
               <div data-barba="container">
  
                   <!-- <div class="mask"></div> -->
-                  <section class="works-hero">
-                 <div class="go-back__wrap"><a class="go-back" href="./#works"><i class="fa-solid fa-arrow-left-long"></i></a></div>
+                  <section class="common-hero" id="works-hero">
+                 <div class="go-back__wrap"><a class="go-back" href="./index.html#works"><i class="fa-solid fa-arrow-left-long"></i></a></div>
                      <div class="section__inner">
                      <div class="section__copy-wrap">
  
-                       <h2 class="section__copy">About Me</h2>
+                       <h2 class="section__copy">Works</h2>
                        <span class="section__border"></span><br>
                        <span class="section__border"></span><br>
                        <h3 class="section__sub-copy">web Site /<br>
@@ -49,8 +49,19 @@
                        </div>
                     
                    </section>
+
+                   <section class="works-wrap">
+                       <div class="works__inner">
+                           <h2 class="works__tit"></h2>
+                            <div class="works__cont">
+                                <p class="works__desc"></p>
+                                <div class="works__thum-wrap">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                       </div>
+                   </section>
                    
-                    <!-- about-pro-->
                    
  
                  
@@ -63,8 +74,11 @@
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
              <script src="js/script.js" defer></script>
              <script src="js/barba.js" defer></script>
+            <script src="js/progressbar.js"></script>
+
              <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
              <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
+             <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
  
      </body>
  </html>
