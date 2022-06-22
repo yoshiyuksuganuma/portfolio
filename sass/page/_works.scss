@@ -1,1 +1,125 @@
 @use '../global' as g;
+
+ 
+
+.works-page {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-stop: always;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    &__bl {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    }
+
+    &__tit {
+        text-align: center;
+        font-size: 6.5rem;
+        letter-spacing: 5px;
+        font-weight: bold;
+        margin-bottom: 3%;
+    }
+    
+    &__link {
+        color: #9494ee;
+    }
+    &__section {
+        scroll-snap-align: start;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &__inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+    }
+
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+    }
+    &__content {
+        padding: 0 5% ;
+        background-color: #080707;
+    }
+
+    &__thum-wrap {
+        width: 50%;
+        border: 1px solid #b0adad;
+
+    }
+
+    &__list {
+        width: 40%;
+        dt {
+            font-size: 3rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                background-color: #fff;
+                transform: rotate(45deg);
+                margin-right: 3%;
+            }
+            
+        }
+        dd {
+            font-size: 2.5rem;
+            opacity: .75;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 5%;
+            &::before {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 2px;
+                background-color: #fff;
+                margin-right: 3%;
+            }
+
+        }
+       
+    }//list
+    &__desc {
+        font-size: 2rem!important;
+        &::before {
+            display: none!important;
+        }
+       
+    }
+
+}
+
+.footer-works {
+    display: none;
+    padding: 0 5% ;
+    position: fixed;
+    bottom: 5%;
+    transform: translatex(-50%);
+    left: 50%;
+    &__inner {
+     
+    text-align: center;
+    }
+    small {
+        font-size: 1.7rem;
+        letter-spacing: 3px;
+        opacity: .75;
+
+    }
+}

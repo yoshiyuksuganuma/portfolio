@@ -24,13 +24,28 @@ html.wf-active {
 
 
 body {
-  background-color: #333;
   font-size: 1.5rem;
   color: #ffff;
   letter-spacing: 0.05em;
-  font-family: futura-pt,utsukushi, sans-serif;
+  font-family: futura-pt,  Hiragino Sans,
+  "ヒラギノ角ゴシック",
+  Hiragino Kaku Gothic ProN,
+  "ヒラギノ角ゴ ProN W3",
+  Roboto,
+  "Droid Sans",
+  YuGothic,
+  "游ゴシック",
+  Meiryo,
+  "メイリオ",
+  Verdana,
+  "MS Pゴシック",
+  sans-serif;
+  line-height: 1.6;
   font-weight: 400;
   font-style: normal;
+  background: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
+
+  
   
 }
 
@@ -40,3 +55,10 @@ img {
   width: 100%;
   object-fit: contain;
 }
+
+a{
+  list-style: none;
+  text-decoration: none!important;
+  transition: all .3s ease-in-out;
+}
+ 

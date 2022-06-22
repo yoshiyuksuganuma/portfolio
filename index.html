@@ -10,58 +10,64 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">        
-        <link rel="stylesheet" href="jquery.lineProgressbar.css" />
 
 	</head>
 	<body id="index">
-        
+    <!-- data-barba-prevent -->
 
-        <header class="header">
-            <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
-            <div class="burger-btn">
-              <span class="burger-btn__bar"></span>
-              <span class="burger-btn__bar"></span>
-              <span class="burger-btn__bar"></span>
-            </div>
-            <nav class="g-nav" id="menu"> 
-                <ul class="g-nav__list">
-                    <li class="g-nav__item ">
-                      <a class="g-nav__link " href="index.html">HOME</a>
-                    </li>
-                    <li class="g-nav__item ">
-                      <a class="g-nav__link " href="./works">WORKS</a>
-                    </li>
-                    <li class="g-nav__item ">
-                      <a class="g-nav__link " href="./about.html">ABOUT</a>
-                    </li>
-                    <li class="g-nav__item ">
-                      <a class="g-nav__link " href="./#contact">ABOUT</a>
-                    </li>
-                </ul>
-             </nav>
-          </header>
+    <header class="header">
+      <div class="header__logo"><a href="./">Yoshiyuki Suganuma</a></div>
+      <div class="burger-btn">
+        <span class="burger-btn__bar"></span>
+        <span class="burger-btn__bar"></span>
+        <span class="burger-btn__bar"></span>
+      </div>
+      <nav class="g-nav" id="menu"> 
+          <ul class="g-nav__list" >
+              <li class="g-nav__item ">
+                <a class="g-nav__link "  href="./">HOME</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./works.html">WORKS</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./about.html">ABOUT</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./#contact">CONTACT</a>
+              </li>
+          </ul>
+       </nav>
+    </header>
 
           
-          <!-- <div class="mask"></div> -->
+          <div class="mask"></div>
 
 
           <main data-barba="wrapper" data-barba-namespace="home">
             <div data-barba="container">
-                <div class="main-bg"></div>
-
+            <div class="main-bg"></div>
+            <div class="ss-nav">
+              <i class="fa-solid fa-star-of-life " id="hero-js"></i>
+              <i class="fa-solid fa-star-of-life " id="works-js"></i>
+              <i class="fa-solid fa-star-of-life " id="about-js"></i>
+              <i class="fa-solid fa-star-of-life " id="contact-js"></i>
+            </div>
 <div class="section__container">
 
 
-                    <div class="hero section" data-anchor="top">
-
+                    <div class="hero section position-now" id="top">
+                        <div class="hero__moon-wrap">
                         <img src="/image/moon.png" alt="" class="hero__moon">
-                     
+                        </div>
                         <div class="section__inner">
                           <div class="section__copy-wrap">
+                          <div class="section__copy-inner">
                           <h2 class="section__copy">YOSHIYUKI<br>SUGANUMA</h2>
                           <span class="section__border"></span><br>
                           <span class="section__border"></span>
                           <h3 class="section__sub-copy">web Coder /</h3>
+                          </div>
                           </div>
                           <p class="hero__tit">PORTFOLIO</p>
                         </div>
@@ -73,18 +79,22 @@
                       </div>
                       <!-- /.hero -->
 
-                        <section class="works section" id="works">
+                        <section class="works section position-now" id="works">
                           <div class="section__inner">
                           <div class="section__copy-wrap">
+                            <div class="section__copy-inner">
                             <h2 class="section__copy">Works</h2>
                             <span class="section__border"></span><br>
                             <span class="section__border"></span><br>
                             <h3 class="section__sub-copy">web Site /<br>
-                            web application.
+                            web application.n
                            </h3>
                             <button  class="link-btn link-btn--bg"><a href="works.html">READ MORE</a></button>
+                            </div>
                           </div>
                           <div class="section__img-wrap">
+                            <div class="section__img-cover"></div>
+                            <div class="section__img-cover"></div>
                         </div>
                             </div>
                          
@@ -92,9 +102,10 @@
                         <!-- /.works -->
 
 
-                        <section class="about section" data-anchor="about" id="about">
+                        <section class="about section position-now" data-anchor="about" id="about">
                           <div class="section__inner">
                           <div class="section__copy-wrap">
+                          <div class="section__copy-inner">
                             <h2 class="section__copy">About Me</h2>
                             <span class="section__border"></span><br>
                             <span class="section__border"></span><br>
@@ -103,17 +114,20 @@
                            </h3>
                             <button  class="link-btn link-btn--bg"><a href="about.html">READ MORE</a></button>
                           </div>
+                          </div>
                           <div class="section__img-wrap">
-                              <a href="about.html"></a>
+                            <div class="section__img-cover"></div>
+                            <div class="section__img-cover"></div>
                           </div>
                             </div>
                          
                         </section>
                         <!-- /.about -->
 
-                        <section class="contact section">
+                        <section class="contact section position-now" id="contact">
                           <div class="section__inner">
                           <div class="section__copy-wrap">
+                          <div class="section__copy-inner">
                             <h2 class="section__copy">Get In Touch</h2>
                             <span class="section__border"></span><br>
                             <span class="section__border"></span><br>
@@ -125,7 +139,10 @@
                                 <a href="#!"><i class="fab fa-instagram"></i></a>
                             </div>
                           </div>
+                          </div>
                           <div class="section__img-wrap">
+                            <div class="section__img-cover"></div>
+                            <div class="section__img-cover"></div>
                           </div>
                             </div>
                          
@@ -139,12 +156,14 @@
           
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="js/script.js" defer></script>
+            <script src="js/progressbar.js"></script>
+
                 <script src="js/barba.js" defer></script>
-                <script src="js/progressbar.js"></script>
                 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
                 <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
                 <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
-                
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+              
 
 
     </body>

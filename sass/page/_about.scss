@@ -1,9 +1,34 @@
 @use '../global' as g;
 
 
+.about-bg {
+    background-color: #fff;
+}
 
-
-
+.about__sec-tit {
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #EE6161;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    font-size: 6.5rem;
+    letter-spacing: 5px;
+    text-align: left;
+    &:after {
+        content: "";
+       width: 27.27%;
+       height: 3px;
+       background: #391E88;
+       position: absolute;
+       left: 0;
+       bottom: -3px;
+      
+       }
+}
 
 
 .about-pro {
@@ -11,10 +36,25 @@
     background-color: #fff;
     padding: 5%;
     font-size: 2rem;
+
+    &__txt {
+        color: #908e8e;
+        font-size: 1.7rem;
+    }
+   
+    &__name {
+        font-weight: bold;
+        font-size: 2.9rem;
+        margin-right: 3%;
+    }
+    &__sub-name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 2%;
+        display: block;
+    }
     &__inner {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
+       
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,22 +63,78 @@
         width: 45%;
         margin-right: 5%;
     }
-    &__tit {
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 0.06em;
-    border-bottom: 3px solid #EE6161;
-    position: relative;
-    &:after {
-        content: "";
-    width: 27.27%;
-    height: 3px;
-    background: #391E88;
-    position: absolute;
-    left: 0;
-    bottom: -3px;
+}
+
+.skill {
+    color: #333;
+    padding: 5%;
+   
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
+    &__bl {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 45%;
+        margin-bottom: 5%;
+      
     }
+    &__bl:nth-of-type(9),
+    &__bl:nth-of-type(10) {
+        margin-bottom: 0;
+    }
+    &__img-wrap {
+        width: 13%;
+    }
+    &__gage {
+
+        width: 83%;
+    }
+    
+    &__year {
+        font-size: 2rem;
+        color: #d1cfcf;
+    }
+    &__name {
+        font-size: 3.5rem;
+        margin-right: 2%;
+    }
+    
+}
+
+
+
+.footer {
+    padding: 5%;
+
+    &__icon {
+        margin-top: 3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            margin-right: 3%;
+        }
+        a:last-of-type {
+            margin: 0;
+        }
+        i {
+            font-size: 3.5rem;
+        }
+    }
+    &__inner {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+
+    }
+    p {
+        text-align: center;
+        font-size: 3.5rem;
+    }
+
 }

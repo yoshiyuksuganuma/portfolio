@@ -7,8 +7,15 @@
 .hero {
     position: relative;
     &__moon {
+        transition: all .4s  cubic-bezier(0.1, 0.5, 0.7, 0.3);
+
+    position: relative;
+    opacity: 0;
+    right: -1000px;
+    }
+    &__moon-wrap {
+    overflow: hidden;
     width: 51%;
-    object-fit: contain;
     position: absolute;
     top: 50%;
     transform: translatey(-50%);
@@ -22,11 +29,12 @@
     font-weight: bold;
     letter-spacing: .2em;
     font-family: futura-pt-bold, sans-serif;
-    transition: all .5s ease-in-out;
+    transition: all .5s  ease-out;
     transition-delay: .1s;
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 65%;
+    opacity: 0;
     transform: translate(0%,-50%);
     }
   

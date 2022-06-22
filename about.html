@@ -10,26 +10,41 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
-
-        <link rel="stylesheet" href="jquery.lineProgressbar.css" />
+        
         
 	</head>
 	<body>
 
-        <header class="header">
-            <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
-            <button class="burger-btn">
-              <span class="burger-btn__bar"></span>
-              <span class="burger-btn__bar"></span>
-              <span class="burger-btn__bar"></span>
-            </button>
-          </header>
+    <header class="header">
+      <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
+      <div class="burger-btn">
+        <span class="burger-btn__bar"></span>
+        <span class="burger-btn__bar"></span>
+        <span class="burger-btn__bar"></span>
+      </div>
+      <nav class="g-nav" id="menu"> 
+          <ul class="g-nav__list" >
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./index.html#top">HOME</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./works.html">WORKS</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./about.html">ABOUT</a>
+              </li>
+              <li class="g-nav__item ">
+                <a class="g-nav__link " href="./index.html#contact">CONTACT</a>
+              </li>
+          </ul>
+       </nav>
+    </header>
 
+          <div class="mask"></div>
 
             <main data-barba="wrapper" data-barba-namespace="common">
              <div data-barba="container">
 
-                 <!-- <div class="mask"></div> -->
                  <section class="common-hero" id="about-hero">
                 <div class="go-back__wrap"><a class="go-back" href="./index.html#about"><i class="fa-solid fa-arrow-left-long"></i></a></div>
                     <div class="section__inner">
@@ -49,20 +64,24 @@
                       </div>
                    
                   </section>
+
+    <div class="about-bg">
                   
                    <!-- about-pro-->
    <section class="about-pro">
-    <div class="about-pro__inner">
+    <h3 class="about__sec-tit">PROFILE</h3>
+
+    <div class="about-pro__inner page-container">
         <div class="about-pro__img-wrap">
           <img src="image/profile.png" class="about__img">
         </div>
         
         <div class="about-pro__txt-wrap">
-        <h3 class="about-pro__tit">Profile</h3>
-        <p class="about-pro__txt">
-          氏名: 菅沼 良行（すがぬま よしゆき<br>
+      
+          <h3 class="about-pro__name">菅沼 良行</h3>
+          <span class="about-pro__sub-name">YOSHIYUKI SUGANUMA</span>
+          <p class="about-pro__txt">
           出身地: 東京都<br>
-          ポートフォリオをご覧いただき誠にありがとうございます！<br>
           WEBコーダーとして活動している菅沼と申します。<br>
           WEBサイト制作・コーディング等、お客様のご要望に丁寧かつ迅速に、ご満足いただけるまで誠意を持って対応させていただきます。<br>
 
@@ -72,26 +91,131 @@
   </section>
   <!-- /.about-pro -->
 
-  
 
-  <section class="skill">
-      <div class="skill__inner">
-        <div id="container"></div>
-<style>
+  <section class="skill" id="skill" >
+    <h2 class="about__sec-tit">SKILL</h2>
 
-#container {
-  margin: 20px;
-  width: 400px;
-  height: 8px;
-  position: relative;
-}
-</style>
-      
+      <div class="skill__inner page-container">
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/html.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">HTML5</span>
+                <span class="skill__year">4years</span>
+                <div id="container" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/css.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">CSS</span>
+                <span class="skill__year">4years</span>
+                <div id="container2" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/js.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">JavaScript</span>
+                <span class="skill__year">3years</span>
+                <div id="container3" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/sass.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">Sass</span>
+                <span class="skill__year">4years</span>
+                <div id="container4" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/ps.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">Photoshop</span>
+                <span class="skill__year">3years</span>
+                <div id="container5" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/wp.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">WordPress</span>
+                <span class="skill__year">2years</span>
+                <div id="container6" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/php.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">PHP</span>
+                <span class="skill__year">2years</span>
+                <div id="container7" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/laravel-l.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">Laravel</span>
+                <span class="skill__year">0.5years</span>
+                <div id="container8" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/aws.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">AWS</span>
+                <span class="skill__year">0.5years</span>
+                <div id="container9" class="p-bar"></div>
+                </div>
+            </div>
+            <div class="skill__bl">
+                <div class="skill__img-wrap">
+                <img src="image/git.png" alt="">
+                </div>
+                <div class="skill__gage">
+                <span class="skill__name">Git</span>
+                <span class="skill__year">0.5years</span>
+                <div id="container10" class="p-bar"></div>
+                </div>
+            </div>
+            
+
+
         
       </div>
   </section>
 
-                
+    </div>
+    <!-- about-bg -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <p><a href="mailto:">marshall3594@gmail.com</a></p>
+            <div class="footer__icon">
+                <a href="https://twitter.com/yoshisuga4"><i class="fab fa-twitter"></i></a>
+                <a href="https://codepen.io/yoshisuga"><i class="fab fa-codepen"></i></a>
+                <a href="https://github.com/yoshiyuksuganuma/"><i class="fab fa-github"></i></a>
+                <a href="#!"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
 
 
                    

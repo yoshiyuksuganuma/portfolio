@@ -6,21 +6,20 @@
   height: 100vh;
     position: relative;
     scroll-snap-align: start;
-  
    
     &__container {
       width: 100vw;
-  height: 100vh;
+      height: 100vh;
       overflow-y: scroll;
       scroll-snap-type: y mandatory;
+
     }
   &__border {
       width: 90px;
       background-color:#ff5100f1;
       height: 4px;
       display: inline-block;
-      transition: all .6s ease-in-out;
-      transition-delay: .1s;
+      
     }
     &__border:nth-of-type(1) {
       margin-top: 20px;
@@ -31,15 +30,16 @@
       margin-bottom: 22px;  
   }
   &__img-wrap {
+    overflow: hidden;
       width: 53%;
       height: 70%;
       position: absolute;
       top: 50%;
       right: 50%;
-      transform: translate(80%,-50%);
-      transition: all;
+      transform: translate(80%,-50%) scale(1);
       background-position: center;
       box-shadow: 0 80px 140px -40px rgb(0 0 0 / 60%);
+
       a {
         display: block;
         width: 100%;
@@ -47,24 +47,49 @@
       }
   }
 
+  &__img-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .83;
+    top: 0;
+    right: 0;
+    background: #ff4d5a;
+    transition: transform .6s cubic-bezier(.15,.65,.35,.65);
+    transition-delay: .2s;
+  }
+  &__img-cover:nth-of-type(2) {
+    background: #072142;
+    transition: transform .7s cubic-bezier(.15,.65,.35,.65);
+    transition-delay: .1s;
+  }
+
   &__inner {
     width: 100%;
     height: 100%;
+
     overflow: hidden;
   }
 
   &__copy-wrap {
+
       text-align: left;
-      transition: all 1s ease-in-out;
       overflow: hidden;
       left: 11%;
       position: absolute;
       top: 50%;
       transform: translatey(-50%);
       z-index: 2;
+    
+  }
+      &__copy-inner {
+        transition: transform .9s  ease-in-out;
+
+    transform: translateX(-1000px);
+
       }
       &__copy {
-      font-size: 12rem;
+      font-size: 10rem;
       font-weight: bold;
       letter-spacing: .1em;
       margin-bottom: 2%;
@@ -85,17 +110,17 @@
 
 
 #works-hero .section__img-wrap {
-  background-image: url('/image/works.jpg');
+  background-image: url('/image/works.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .works .section__img-wrap {
-  background-image: url('/image/works.jpg');
+  background-image: url('/image/works.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .about .section__img-wrap {
-  background-image: url('/image/about.jpg');
+  background-image: url('/image/about.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -106,7 +131,7 @@
 
 }
 #about-hero .section__img-wrap {
-  background-image: url('/image/about.jpg');
+  background-image: url('/image/about.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -119,6 +144,12 @@
   top: 0;
   right: 0;
   width: 60%;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 

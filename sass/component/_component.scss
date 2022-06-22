@@ -42,7 +42,7 @@
   }
 
 .scrollbar {
-    position: absolute;
+    position: fixed;
     width: 406px;
     bottom: 50px;
     left: -145px;
@@ -72,8 +72,9 @@
         font-weight: bold;
         color: #fff;
     }
+    
 }
-
+ 
 
 .scrollbar-efe {
     bottom: -200%;
@@ -96,11 +97,12 @@
   }
 
   .go-back {
-      font-size: 7rem;
+      font-size: 5.5rem;
       color: #fff;
       display: block;
       width: 100%;
       height: 100%;
+      position: relative;
     
      
       &__wrap {
@@ -108,11 +110,35 @@
           position: absolute;
           left: 3%;
           top: 10%;
-          transition: transform .3s;
-          &:hover {
-            transform: rotate(360deg) scale(1.4);
-        }
+          transition: transform .4s;
+          
       }
+  }
+
+  .ss-nav {
+    position: fixed;
+    left: 3%;
+    transform: translateY(-50%);
+    top: 50%;
+    text-align: center;
+    i {
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.45;
+    transition: all .3s ease-in-out;
+
+    }
+    i:last-of-type() {
+      margin-bottom: 0;
+      
+    }
+  }
+
+  .link-current {
+    opacity: 1!important;
+    font-size: 4rem!important;
+    transform: rotate(180deg);
   }
 
   
