@@ -1,18 +1,36 @@
 $(function () {
   "usestrict";
+  function parallax() {
+ // パララックスのターゲット取得
+ const target = document.getElementsByClassName('js-parallax');
+ // パララックスを行うエリア
+ const activeArea = document.getElementById('fullpage');
+ // ウィンドウの中心の取得
+ const xCenter = window.innerWidth / 2;
+ const yCenter = window.innerHeight / 2;
+ // パララックスで移動させる距離
+ const parallaxVal = 10; //中心からマウスの距離の10分１移動
 
-    // $('a[href^="#"]').click(function () {
-    //   let adjust = -100;
-    //   let speed = 500;
-    //   let href = $(this).attr("href");
-    //   let target = $(href == "#" || href == "" ? "html" : href);
-    //   let position = target.offset().top + adjust;
-    //   $("html, body").animate({ scrollTop: position }, speed, "swing");
-    //   return false;
-    // });
+ // マウスがパララックスエリアに入った時のイベント
+ activeArea.addEventListener('mousemove', (e) => {
+   // マウスの座標を取得して 中心からの距離取得、 そこからpararaxValで距離を調整
+   const x = (xCenter - e.pageX) / parallaxVal;
+   const y = (yCenter - e.pageY) / parallaxVal;
+   // パララックスさせる要素にstyleの指定
+   for (var i = 0; i < target.length; i++) {
+     target[i].style.transform = `translate(${-x}px, ${-y}px)`;
+   }
+ });
+}
 
-  const $win = $(window),
-  $header = $("#header");
+  function st() {
+    $('.go-back').on('click',function(){
+    $('body,html').animate({ scrollTop: 0 }, 120);
+  });
+  }
+
+  const $win = $(window);
+
 
   if (window.performance) {
     if (performance.navigation.type === 1) {
@@ -118,7 +136,7 @@ $(function () {
     from: {color: '#FFEA82'},
     to: {color: '#ED6A5A'},
     step: (state, bar3) => {
-    bar3.setText(Math.round(bar3.value() * 100) + 'f %');
+    bar3.setText(Math.round(bar3.value() * 100) + '%');
     }
   });
   bar3.animate(0.75);  // Number from 0.0 to 1.0
@@ -335,87 +353,137 @@ $(function () {
 
 
 
+$(window).ready(function(){
+  $('#hero-js').addClass('link-current');
+  $('.hero .section__copy-inner').addClass('hero__copy-efe');
+  $('.hero__tit').addClass('hero__tit-efe');
+  $('.hero__moon').addClass('hero__moon-efe');
+  return gsap.to("#fp-nav",{
+    left: 0.7 + '%',
+   duration: 0.5,
+   ease: "cublic.inOut",
+  });
+});
 
-function switchNav() {
- 
-   //ナビゲーションのカレント処理
-   let set = 1000;//ウインドウ上部からどれぐらいの位置で変化させるか
-   let boxTop = new Array;
-   let current = -1;
+$('#tocontact').click(function(){
+  $('.contact .section__copy-inner').addClass('hero__copy-efe');
+      $('.contact .section__img-cover').addClass('img-cover-efe');
+});
 
-   console.log(set);
-   //各要素の位置
-   //position-nowは場所を取得したい対象の要素に付ける
-   $('.position-now').each(function (i) {
-     boxTop[i] = $(this).offset().top;
-   });
-   //最初の要素にclass="positiion-now"をつける
-   changeBox(0);
-   //スクロールした時の処理
-   $('.section__container').scroll(function () {
-     scrollPosition = $('.section__container').scrollTop();
-     for (let i = boxTop.length - 1; i >= 0; i--) {
-       if ($('.section__container').scrollTop() > boxTop[i] - set) {
-         changeBox(i);
-         break;
-       }
-     };
-   });
-   
-   //ナビの処理
-   function changeBox(secNum) {
-     if (secNum != current) {
-       current = secNum;
-       secNum2 = secNum + 1;//以下にクラス付与したい要素名と付与したいクラス名
-       $('.ss-nav i').removeClass('link-current');
-       $('.hero__tit').removeClass('hero__tit-efe');
-       $('.hero .section__copy-inner').removeClass('hero__copy-efe');
-       $('.works .section__copy-inner').removeClass('hero__copy-efe');
-       $('.about .section__copy-inner').removeClass('hero__copy-efe');
-       $('.contact .section__copy-inner').removeClass('hero__copy-efe');
-       $('.hero__tit').removeClass('hero__tit-efe');
-       $('.hero__moon').removeClass('hero__moon-efe');
-       $('.works .section__img-cover').removeClass('img-cover-efe');
-       $('.works .section__img-cover:eq(2)').removeClass('img-cover-efe');
-       $('.about .section__img-cover').removeClass('img-cover-efe');
-       $('.contact .section__img-cover').removeClass('img-cover-efe');
 
- 
-       //位置によって個別に処理をしたい場合
-       if (current == 0) {
-         $('#hero-js').addClass('link-current');
-         $('.hero .section__copy-inner').addClass('hero__copy-efe');
-         $('.hero__tit').addClass('hero__tit-efe');
-         $('.hero__moon').addClass('hero__moon-efe');
-       
-         // 現在地がsection1の場合の処理
-       } else if (current == 1) {
-         $('#works-js').addClass('link-current');
-         $('.works .section__copy-inner').addClass('hero__copy-efe');
-         $('.works .section__img-cover').addClass('img-cover-efe');
-         $('.works .section__img-cover:eq(2)').addClass('img-cover-efe');
+function full() {
+$('#fullpage').fullpage({
+  anchors: ['top', 'works', 'about', 'contact'],
+  navigation: true,
+  navigationPosition: 'right',
+  scrollingSpeed: 1000,
+  animateAnchor: false,
 
-         // 現在地がsection2の場合の処理
-       } else if (current == 2) {
-         // 現在地がsection3の場合の処理
-         $('.about .section__copy-inner').addClass('hero__copy-efe');
-       $('.about .section__img-cover').addClass('img-cover-efe');
+  onLeave: function(index, nextIndex, direction){
+     if(index == 1 && direction =='down'){
+      $('#hero-js').removeClass('link-current');
+      $('.hero .section__copy-inner').removeClass('hero__copy-efe');
+      $('.hero__tit').removeClass('hero__tit-efe');
+      $('.hero__moon').removeClass('hero__moon-efe');
+      setTimeout(function() {
 
-         $('#about-js').addClass('link-current');
-       }
-       else if (current == 3) {
-         // 現在地がsection4の場合の処理
-         $('#contact-js').addClass('link-current');
-       $('.contact .section__img-cover').addClass('img-cover-efe');
-         $('.contact .section__copy-inner').addClass('hero__copy-efe');
+      $('.works .section__copy-inner').addClass('hero__copy-efe');
+      $('.works .section__img-cover').addClass('img-cover-efe');
+      $('.works .section__number').addClass('number-efe');
+    },150);
 
-       }
+    } else if(index == 2 && direction =='down') {
+     
+
+      setTimeout(function() {
+        $('.works .section__copy-inner').removeClass('hero__copy-efe');
+        $('.works .section__img-cover').removeClass('img-cover-efe');
+       $('.works .section__number').removeClass('number-efe');
+        },350);
+
+        setTimeout(function() {
+          $('.about .section__copy-inner').addClass('hero__copy-efe');
+      $('.about .section__img-cover').addClass('img-cover-efe');
+      $('.about .section__number').addClass('number-efe');
+        },150);
+    } else if(index == 2 && direction =='up') {
+      $('#hero-js').addClass('link-current');
+      $('.hero .section__copy-inner').addClass('hero__copy-efe');
+      $('.hero__tit').addClass('hero__tit-efe');
+      $('.hero__moon').addClass('hero__moon-efe');
+
+      setTimeout(function() {
+        $('.works .section__copy-inner').removeClass('hero__copy-efe');
+        $('.works .section__img-cover').removeClass('img-cover-efe');
+      $('.works .section__number').removeClass('number-efe');
+
+        },350);
+
+     
+    } else if(index == 3 && direction =='down') {
+      $('.contact .section__copy-inner').addClass('hero__copy-efe');
+      $('.contact .section__img-cover').addClass('img-cover-efe');
+      $('.contact .section__number').addClass('number-efe');
+      if($win.innerWidth() > 769) {
+       $('.footer').addClass('is-show');
+       $('.scrollbar').hide();
+      }
       
- 
-     }
-   };
- 
-  };
+      setTimeout(function() {
+      $('.about .section__copy-inner').removeClass('hero__copy-efe');
+      $('.about .section__img-cover').removeClass('img-cover-efe');
+      $('.about .section__number').removeClass('number-efe');
+
+      },350);
+
+    } else if(index == 3 && direction =='up') {
+      setTimeout(function() {
+        $('.about .section__copy-inner').removeClass('hero__copy-efe');
+        $('.about .section__img-cover').removeClass('img-cover-efe');
+      $('.about .section__number').removeClass('number-efe');
+
+        },350);
+
+        setTimeout(function() {
+          $('.works .section__copy-inner').addClass('hero__copy-efe');
+          $('.works .section__img-cover').addClass('img-cover-efe');
+      $('.works .section__number').addClass('number-efe');
+
+          },150);
+     
+    } else if(index == 4 && direction =='up') {
+      setTimeout(function() {
+        $('.footer').removeClass('is-show');
+      if($win.innerWidth() > 769) {
+
+        $('.scrollbar').show();
+      }
+        $('.contact .section__copy-inner').removeClass('hero__copy-efe');
+        $('.contact .section__img-cover').removeClass('img-cover-efe');
+      $('.contact .section__number').removeClass('number-efe');
+
+        },350);
+    
+      setTimeout(function() {
+      $('.about .section__copy-inner').addClass('hero__copy-efe');
+      $('.about .section__img-cover').addClass('img-cover-efe');
+      $('.about .section__number').addClass('number-efe');
+
+      },150);
+    }
+
+    
+    }
+
+});
+//ナビゲーションのaタグ無効化
+    $('#fp-nav').on('click',function(){
+      return false;
+    });
+
+}
+
+
 
 
 
@@ -423,18 +491,18 @@ function switchNav() {
 
  function scrollDo() {
   
-  $('.works-page').on('scroll',function(){
-    let scrollTop = $(".works-page").scrollTop(); // スクロール上部の位置
-  let areaTop = $("#scroll-end").offset().top; // 対象エリアの上部の位置
-  let areaBottom = areaTop + $("#scroll-end").innerHeight(); // 対象エリアの下部の位置
+  $('.page-top').on('scroll',function(){
+    let scrollTop = $(".page-top").scrollTop(); // スクロール上部の位置
+    let areaTop = $(".scroll-end").offset().top; // 対象エリアの上部の位置
+    let areaBottom = areaTop + $(".scroll-end").innerHeight(); // 対象エリアの下部の位置
     if (scrollTop > areaTop + areaBottom + 800) {
-   $('.scrollbar--works').addClass('is-hide');
-   $('.footer-works').addClass('is-show');
+   $('.scrollbar').addClass('is-hide');
+   $('.footer').addClass('is-show');
 
   }  else {
    
-    $('.scrollbar--works').removeClass('is-hide');
-    $('.footer-works').removeClass('is-show');
+    $('.scrollbar').removeClass('is-hide');
+    $('.footer').removeClass('is-show');
   }
    
   });
@@ -449,9 +517,12 @@ function switchNav() {
 
   //ハンバーガーボタン、メニュー
   $('.burger-btn').on('click', function() {
-    $('.burger-btn__bar').toggleClass('bar-active');
+    $('.burger-btn__close-bar').fadeToggle('slow');
     $('.g-nav').toggleClass('m-active');
     $('.g-nav__link').toggleClass('link-active');
+    $('.burger-btn__bg').toggleClass('bg-efe');
+    
+
 
 });
 $win.resize(function() {
@@ -462,10 +533,14 @@ $win.resize(function() {
 });
 
 $('.g-nav__link').on('click',function(){
+  setTimeout(function(){
+    $('.burger-btn__close-bar').fadeOut('slow');
   $('.g-nav').removeClass('m-active');
-  $('.burger-btn__bar').removeClass('bar-active');
   $('.g-nav__link').removeClass('link-active');
-
+  $('.burger-btn__bg').removeClass('bg-efe');
+  $('.footer').addClass('is-show');
+  $('.scrollbar').hide();
+},900);   
 
 });
 
@@ -476,6 +551,8 @@ $('.g-nav__link').on('click',function(){
 
   $('.mask').addClass('mask-up');
 
+
+  
    
     
 
@@ -486,52 +563,51 @@ barba.init({
   views: [{
     namespace: 'common',
     beforeEnter() {
+     $.fn.fullpage.destroy('all');
+
       
   
       // update the menu based on user navigation
     },
-    afterLeave(data) {
-      switchNav();
-
-      const hash = data.next.url.hash;
-      document.getElementById(hash).scrollIntoView();
+    leave(data) {
+     
+      
     },
     afterEnter(data) {
+      st();
       const pathName = location.pathname;
       if(pathName === '/about.html') {
-      bar();
+       bar();
       }
       if(pathName === '/works.html')  {
         scrollDo();
         
       }
-      switchNav();
+     
 
-      const hash = data.next.url.hash;
-      document.getElementById(hash).scrollIntoView();
+      
     },
     
   },{
     namespace: 'home',
     afterEnter(data) {
-      switchNav();
-
-      const hash = data.next.url.hash;
-      document.getElementById(hash).scrollIntoView();
-
+      
+      full();
+      parallax();
+      
+    
+      
+     
+    
     },
     beforeEnter(data) {
-      switchNav();
-
-      const hash = data.next.url.hash;
-      document.getElementById(hash).scrollIntoView();
+  
+     $.fn.fullpage.destroy('all');
+    
 
     },
     enter(data) {
-      switchNav();
-
-      const hash = data.next.url.hash;
-      document.getElementById(hash).scrollIntoView();
+      
     }
    
   }
@@ -542,88 +618,146 @@ transitions: [
     name: 'home',
     to: { namespace: ['common'] },
     leave() {
+      if($win.innerWidth() >= 769) {
       const tl = gsap.timeline();
       return tl.to(" .section__img-wrap", {
-        width: 60 + '%',
        height: 100 + 'vh',
-       right: 0,
-       x: 0,
-       y: 0,
-       duration: 0.6, 
+       width: 63 + 'vw',
+      x: 0,
+       duration: 0.4, 
        ease: "cublic.inOut"  
      },'same').to(" .main-bg",{
       background: '#080707',
       duration: 0.9, 
       ease: "cublic.inOut"  
-     },'same').to(".ss-nav",{
+     },'same').to(".section__number",{
+      opacity: 0,
+      duration: 0.9,
+      ease: "cublic.inOUt"
+     },'same').to("#fp-nav",{
       x: -300,
       duration: 0.9,
       ease: "cublic.inOUt"
-     },'same')
+     },'same').to(".link-btn",{
+      opacity: 0,
+      duration: 0.9,
+      ease: "cublic.inOUt"
+     },'same');
+    }
+    if($win.innerWidth() <= 768) {
+      const tl = gsap.timeline();
+      return tl.to(" .section__img-wrap", {
+      width: 100 + 'vw',
+      height: 60 + 'vh',
+      y: 0,
+      margin: 0,
+       duration: 0.4, 
+       ease: "cublic.inOut"  
+     },'same').to(" .main-bg",{
+      background: '#080707',
+      duration: 0.9, 
+      ease: "cublic.inOut"  
+     },'same').to(".section__number",{
+      opacity: 0,
+      duration: 0.9,
+      ease: "cublic.inOUt"
+     },'same').to("#fp-nav",{
+      y: 200 ,
+      duration: 0.9,
+      ease: "cublic.inOUt"
+     },'same').to(".link-btn",{
+      opacity: 0,
+      duration: 0.9,
+      ease: "cublic.inOUt"
+     },'same');
+
+    }
     },
 
-    enter() {
-      gsap.fromTo(".go-back",{
-        left: -500 + 'px'
-      },{
-       left: 3 + '%',
-       duration: 0.3,
-       ease: "cublic.inOut"
-      },'-0.3');
-     
-    }
-  
 
+    beforeEnter() {
+      gsap.fromTo(".go-back",{
+        left: -300 + 'px',
+        },  {
+          left: 0.3 + '%', 
+          duration: 0.3, 
+          ease: "cublic.inOut"  
+        },'-3');
+      
+    },
 
   }, {
-    name: 'about',
+    name: 'a',
     to: { namespace: ['home'] },
+    
     leave() { 
+      if($win.innerWidth() >= 769) {
+
       const tl = gsap.timeline();    
       return tl.to(".common-hero .section__img-wrap", {
-       width: 53 + '%',
+       width: 50 + 'vw',
        height: 70 + '%',
-       right: 50 + '%',
-       top: 50 + '%',
-      x: 80 + '%',
-      y: -50 + '%',
-       duration: 0.6, 
+      x: -17 + '%',
+       duration: 0.4, 
        ease: "sine.inOut"  
-     },'same').to(".section__copy-inner-works",{
-       x: -500,
-      duration: 0.8, 
-      ease: "cublic.inOut"  
      },'same').to(".go-back", {
        left: -500 + 'px',
-      duration: 0.6, 
+      duration: 0.5, 
       ease: "cublic.inOut"  
     },'same').to(".common-hero", {
       background: 'linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16)',
-       duration: 1, 
+       duration: 0.9, 
        ease: "cublic.inOut"  
      },'same');
-   },
+    }
 
-   enter() {
-
-    const tl = gsap.timeline();    
-    tl.to(".section__copy-inner-works",{
-       x: -500,
-      duration: 0.8, 
-      ease: "cublic.inOut"  
+    if($win.innerWidth() <= 768) {
+      const tl = gsap.timeline();    
+      return tl.to(".common-hero .section__img-wrap", {
+       width: 80 + 'vw',
+       height: 50 + 'vh',
+       y: 10 + '%',
+       x: -15 + '%',
+       duration: 0.4, 
+       ease: "sine.inOut"  
      },'same').to(".go-back", {
        left: -500 + 'px',
-      duration: 0.6, 
+      duration: 0.5, 
       ease: "cublic.inOut"  
-    },'same');
-    tl.fromTo(".ss-nav",{
-      x: -200,
-    },{
-     x: 0,
-     duration: 0.5,
-     ease: "cublic.inOut"
-    },'-0.2')
+    },'same').to(".common-hero", {
+      background: 'linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16)',
+       duration: 0.9, 
+       ease: "cublic.inOut"  
+     },'same');
+    }
+
+    
+    
+   },
+
+   afterEnter() {
+    if($win.innerWidth() >= 769) {
+    gsap.to("#fp-nav",{
+      left: 0.7 + '%',
+    });
+  }
+  
+  
+
+    $('#hero-js').addClass('link-current');
+    $('.hero .section__copy-inner').addClass('hero__copy-efe');
+    $('.hero__tit').addClass('hero__tit-efe');
+    $('.hero__moon').addClass('hero__moon-efe');
+
+    $('.about .section__copy-inner').addClass('hero__copy-efe');
+    $('.about .section__img-cover').addClass('img-cover-efe');
+    $('.about .section__number').addClass('number-efe');
+    $('.contact .section__copy-inner').addClass('hero__copy-efe');
+    $('.contact .section__img-cover').addClass('img-cover-efe');
    }
+
+   
+
  
   }
 ],

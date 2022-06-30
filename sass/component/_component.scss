@@ -21,46 +21,58 @@
 
 
 .link-btn {
-    width: 200px;
-    height: 50px;
+  position: relative;
+  z-index: 5;
+    display: inline-block;
     font-weight: bold;
     border-radius: 50px;
     text-align: center;
     appearance: none;
-    margin-top: 3%;
+    margin-top: 7%;
     letter-spacing: 0.2em;
     background:  #ff4d5a;;
+    width: 200px;
+    height: 50px;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: bold;
-     a {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        line-height: 4;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform .3s;
+  &:hover {
+    transform: translateY(10px);
+  }
+     
   }
 
 .scrollbar {
     position: fixed;
-    width: 406px;
-    bottom: 50px;
-    left: -145px;
-    display: flex;
-    align-items: center;
-    transform: rotate(90deg);
+    bottom: 10%;
+    left: 3%;
     transition: all .7s ease-in-out;
+    @include g.sp {
+      display: none;
+    }
     span {
         display: inline-block;
     }
     &__line {
+        position: absolute;
+        bottom: -90px;
+        left: 50%;
+        transform: translatex(-50%);
+        display: block;
         overflow: hidden;
-        width: 80px;
+        height: 80px;
+        width: 1px;
         &:after {
-            display: block;
+             
             content: "";
-            width: 80px;
-            height: 1px;
+            display: block;
+            width: 1pxx;
+            height: 80px;
             background-color: #fff;
             animation: moveY 2s infinite ease;
         }
@@ -68,9 +80,9 @@
     &__txt {
         font-size: 2rem;
         letter-spacing: 0.4em;
-        margin-right: 1rem;
         font-weight: bold;
         color: #fff;
+        writing-mode: vertical-rl;
     }
     
 }
@@ -86,13 +98,13 @@
 
 @keyframes moveY {
     0% {
-      transform: translatex(-80px);
+      transform: translatey(-80px);
     }
     50% {
-      transform: translatex(0px);
+      transform: translatey(0px);
     }
     100% {
-      transform: translatex(80px);
+      transform: translatey(80px);
     }
   }
 
@@ -103,42 +115,16 @@
       width: 100%;
       height: 100%;
       position: relative;
+     
     
      
       &__wrap {
           overflow: hidden;
-          position: absolute;
+          position: fixed;
           left: 3%;
           top: 10%;
           transition: transform .4s;
-          
+          z-index: 3;
       }
   }
-
-  .ss-nav {
-    position: fixed;
-    left: 3%;
-    transform: translateY(-50%);
-    top: 50%;
-    text-align: center;
-    i {
-      display: block;
-      font-size: 3rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.45;
-    transition: all .3s ease-in-out;
-
-    }
-    i:last-of-type() {
-      margin-bottom: 0;
-      
-    }
-  }
-
-  .link-current {
-    opacity: 1!important;
-    font-size: 4rem!important;
-    transform: rotate(180deg);
-  }
-
-  
+ 

@@ -10,17 +10,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">        
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha512-/AilQf/shuEGfh8c3DoIqcIqHZCKpiImSyt+fxIKJphHiNa6QMPb6AbDly6rkjmGr/5OZd35JtvVkbEKnCZO+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body id="index">
+    
     <!-- data-barba-prevent -->
 
     <header class="header">
       <div class="header__logo"><a href="./">Yoshiyuki Suganuma</a></div>
       <div class="burger-btn">
-        <span class="burger-btn__bar"></span>
-        <span class="burger-btn__bar"></span>
-        <span class="burger-btn__bar"></span>
+        <div class="burger-btn__bg"></div>
+          <span class="burger-btn__close-bar"></span>
+          <span class="burger-btn__close-bar"></span>
       </div>
       <nav class="g-nav" id="menu"> 
           <ul class="g-nav__list" >
@@ -34,7 +35,7 @@
                 <a class="g-nav__link " href="./about.html">ABOUT</a>
               </li>
               <li class="g-nav__item ">
-                <a class="g-nav__link " href="./#contact">CONTACT</a>
+                <a id="tocontact" class="g-nav__link " href="./#contact">CONTACT</a>
               </li>
           </ul>
        </nav>
@@ -42,25 +43,37 @@
 
           
           <div class="mask"></div>
-
+         
 
           <main data-barba="wrapper" data-barba-namespace="home">
             <div data-barba="container">
+             
             <div class="main-bg"></div>
-            <div class="ss-nav">
-              <i class="fa-solid fa-star-of-life " id="hero-js"></i>
-              <i class="fa-solid fa-star-of-life " id="works-js"></i>
-              <i class="fa-solid fa-star-of-life " id="about-js"></i>
-              <i class="fa-solid fa-star-of-life " id="contact-js"></i>
+           
+            <div class="scrollbar">
+              <span class="scrollbar__txt">SCROLL</span>
+              <span class="scrollbar__line"></span>
             </div>
-<div class="section__container">
+
+            <div class="pararaxArea" id="js-parallaxArea">
+              <div class="js-parallax pararaxItem"></div>
+              <div class="js-parallax pararaxItem"></div>
+              <div class="js-parallax pararaxItem"></div>
+              <div class="hero__moon-wrap">
+              </div>
+              </div>
+
+          
+                  <div id="fullpage">
 
 
-                    <div class="hero section position-now" id="top">
-                        <div class="hero__moon-wrap">
-                        <img src="/image/moon.png" alt="" class="hero__moon">
-                        </div>
+                    <div class="hero section " data-anchor="top" >
+                     
                         <div class="section__inner">
+                          <div class="hero__moon-wrap">
+                            <img src="/image/moon.png" alt="" class="hero__moon">
+                            </div>
+                          
                           <div class="section__copy-wrap">
                           <div class="section__copy-inner">
                           <h2 class="section__copy">YOSHIYUKI<br>SUGANUMA</h2>
@@ -70,16 +83,13 @@
                           </div>
                           </div>
                           <p class="hero__tit">PORTFOLIO</p>
+                       
                         </div>
                    
-                         <div class="scrollbar">
-                          <span class="scrollbar__txt">SCROLL</span>
-                          <span class="scrollbar__line"></span>
-                        </div>
                       </div>
                       <!-- /.hero -->
 
-                        <section class="works section position-now" id="works">
+                        <section class="works section " data-anchor="works"  >
                           <div class="section__inner">
                           <div class="section__copy-wrap">
                             <div class="section__copy-inner">
@@ -87,22 +97,27 @@
                             <span class="section__border"></span><br>
                             <span class="section__border"></span><br>
                             <h3 class="section__sub-copy">web Site /<br>
-                            web application.n
+                            web application.
                            </h3>
-                            <button  class="link-btn link-btn--bg"><a href="works.html">READ MORE</a></button>
+                        <a class="link-btn link-btn--bg" href="./works.html">READ MORE</a>
                             </div>
                           </div>
                           <div class="section__img-wrap">
                             <div class="section__img-cover"></div>
                             <div class="section__img-cover"></div>
+
                         </div>
+                        <div class="section__number-wrap">
+                        <div class="section__number">01</div>
+                        </div>
+
                             </div>
                          
                         </section>
                         <!-- /.works -->
 
 
-                        <section class="about section position-now" data-anchor="about" id="about">
+                        <section class="about section " data-anchor="about" >
                           <div class="section__inner">
                           <div class="section__copy-wrap">
                           <div class="section__copy-inner">
@@ -112,19 +127,24 @@
                             <h3 class="section__sub-copy">web Site /<br>
                             web application.
                            </h3>
-                            <button  class="link-btn link-btn--bg"><a href="about.html">READ MORE</a></button>
+                        <a class="link-btn link-btn--bg" href="./about.html">READ MORE</a>
+                           
                           </div>
                           </div>
                           <div class="section__img-wrap">
                             <div class="section__img-cover"></div>
                             <div class="section__img-cover"></div>
                           </div>
+                          <div class="section__number-wrap">
+                        <div class="section__number">02</div>
+                        </div>
+
                             </div>
                          
                         </section>
                         <!-- /.about -->
 
-                        <section class="contact section position-now" id="contact">
+                        <section class="contact section scroll-end " data-anchor="contact">
                           <div class="section__inner">
                           <div class="section__copy-wrap">
                           <div class="section__copy-inner">
@@ -144,13 +164,27 @@
                             <div class="section__img-cover"></div>
                             <div class="section__img-cover"></div>
                           </div>
+                          <div class="section__number-wrap">
+                        <div class="section__number">03</div>
+                        </div>
+
                             </div>
-                         
+
+                           
+                           
                         </section>
                         <!-- /.about -->
-
+                       
                     </div>
                     <!-- fullpage -->
+                    <footer class="footer">
+                      <div class="footer__inner">
+                        <small>&copy;YOSHIYUKI SUGANUMA.All Rights Reserved.</small>
+                      </div>
+                    </footer>
+             
+                   
+              
              </div>
             </main>
           
@@ -163,7 +197,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
                 <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
-              
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js" integrity="sha512-XOpdFagEEv9XMxN/2EdvFL/PfGtFDjX+AkRznsFHDtdC05YWdkMnz5JZUfrbnEabOQaMc7YNTl2xPbOu3J858Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     </body>

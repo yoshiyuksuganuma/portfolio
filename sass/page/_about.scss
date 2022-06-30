@@ -2,7 +2,7 @@
 
 
 .about-bg {
-    background-color: #fff;
+    background-color: #212121;
 }
 
 .about__sec-tit {
@@ -19,7 +19,7 @@
     letter-spacing: 5px;
     text-align: left;
     &:after {
-        content: "";
+    content: "";
        width: 27.27%;
        height: 3px;
        background: #391E88;
@@ -32,41 +32,68 @@
 
 
 .about-pro {
-    color: #333;
-    background-color: #fff;
+    color: #fff;
+    background-color: #212121;
     padding: 5%;
     font-size: 2rem;
+    
 
     &__txt {
-        color: #908e8e;
+        color: #fff;
         font-size: 1.7rem;
+        @include g.sp {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    }
+    &__txt-wrap {
+        @include g.sp {
+            margin-top: 7%;
+        }
     }
    
     &__name {
         font-weight: bold;
         font-size: 2.9rem;
         margin-right: 3%;
+        @include g.sp {
+            font-size: 4rem;
+            margin-right: 0;
+            text-align: center;
+        }
     }
     &__sub-name {
         font-size: 1.8rem;
         font-weight: bold;
         margin-bottom: 2%;
         display: block;
+        @include g.sp {
+            text-align: center;
+            font-size: 2.4rem;
+        }
     }
     &__inner {
        
         display: flex;
         justify-content: center;
         align-items: center;
+        @include g.sp {
+        display: block;
+        }
     }
     &__img-wrap {
         width: 45%;
         margin-right: 5%;
+        @include g.sp {
+            margin: 0 auto;
+            width: 70%;
+
+        }
     }
 }
 
 .skill {
-    color: #333;
+    color: #fff;
     padding: 5%;
    
     &__inner {
@@ -74,6 +101,9 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      @include g.sp {
+        display: block;
+      }
     }
     &__bl {
         display: flex;
@@ -81,11 +111,18 @@
         align-items: center;
         width: 45%;
         margin-bottom: 5%;
+        @include g.sp {
+            width: 100%;
+            margin-bottom: 10%;
+        }
       
     }
     &__bl:nth-of-type(9),
     &__bl:nth-of-type(10) {
         margin-bottom: 0;
+        @include g.sp {
+            margin-bottom: 10%;
+        }
     }
     &__img-wrap {
         width: 13%;
@@ -108,7 +145,7 @@
 
 
 
-.footer {
+.footer-about {
     padding: 5%;
 
     &__icon {

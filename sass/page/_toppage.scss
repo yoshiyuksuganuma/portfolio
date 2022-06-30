@@ -12,6 +12,9 @@
     position: relative;
     opacity: 0;
     right: -1000px;
+    @include g.sp {
+    right: -600px;
+    }
     }
     &__moon-wrap {
     overflow: hidden;
@@ -21,9 +24,17 @@
     transform: translatey(-50%);
     right: 9%;
     transition: all .6s ease-in-out;
+    @include g.sp {
+    top: auto;
+    transform: none;
+    right: auto;
+    position: static;
+    width: 100%;
+    transform: translatey(15%);
+    }
     }
     &__tit {
-    font-size: 6rem;
+    font-size: 6.1rem;
     color: #ff5100f1;
     text-align: center;
     font-weight: bold;
@@ -35,7 +46,15 @@
     top: 50%;
     left: 65%;
     opacity: 0;
-    transform: translate(0%,-50%);
+    transform: translateX(50%);
+    @include g.sp {
+        top: 30%;
+        left: 50%;
+        transform: none;
+
+    }
+    
+    
     }
   
   
@@ -57,6 +76,50 @@
 }
   
  
+.pararaxArea {
+    position: fixed;
+    // background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .pararaxItem {
+      position: absolute;
+     border-radius: 50%;
+      opacity: .5;
+      &:nth-child(1) {
+        width: 55%;
+        height: 100%;
+        background-color: rgba(244, 244, 244, 0.09);
+        transition: transform 1s linear .008s;
+      }
+      &:nth-child(2) {
+        width: 50%;
+        height: 90%;
+        background-color: rgba(214, 218, 218, 0.11);
+        transition: transform .8s linear .004s;
+      }
+      &:nth-child(3) {
+        width: 45%;
+        height: 85%;
+        background-color: rgba(#eff6f6, 0.15);
+        transition: transform .6s linear 0s;
+      }
+    }
+  
+    .centerObj {
+      position: absolute;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      
+      img {
+        width: 100%;
+      }
+    }
+  }
 
 
 

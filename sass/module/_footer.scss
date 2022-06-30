@@ -1,5 +1,25 @@
 @use '../global/' as g;
+
 .footer {
-  &__small {
+  width: 100%;
+  display: none;
+  padding: 0 5% ;
+  position: fixed;
+  bottom: 5%;
+  transform: translatex(-50%);
+  left: 50%;
+  @include g.sp {
+    display: none;
+  }
+  &__inner {
+   
+  text-align: center;
+  }
+  small {
+      display: block;
+      font-size: 1.7rem;
+      letter-spacing: 3px;
+      opacity: .75;
+
   }
 }

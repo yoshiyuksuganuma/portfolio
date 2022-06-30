@@ -3,29 +3,31 @@
 
 <html lang="ja">
 	<head>
-		<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>about</title>
-        <link rel="stylesheet" href="https://use.typekit.net/nkv0qmr.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/style.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
-        
-        
-	</head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width,initial-scale=1">
+         <title>works</title>
+         <link rel="stylesheet" href="https://use.typekit.net/nkv0qmr.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/style.css">
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha512-/AilQf/shuEGfh8c3DoIqcIqHZCKpiImSyt+fxIKJphHiNa6QMPb6AbDly6rkjmGr/5OZd35JtvVkbEKnCZO+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+ 
+         
+     </head>
 	<body>
 
     <header class="header">
-      <div class="header__logo"><a href="index.html">Yoshiyuki Suganuma</a></div>
+      <div class="header__logo"><a href="./">Yoshiyuki Suganuma</a></div>
       <div class="burger-btn">
-        <span class="burger-btn__bar"></span>
-        <span class="burger-btn__bar"></span>
-        <span class="burger-btn__bar"></span>
+        <div class="burger-btn__bg"></div>
+          <span class="burger-btn__close-bar"></span>
+          <span class="burger-btn__close-bar"></span>
       </div>
       <nav class="g-nav" id="menu"> 
           <ul class="g-nav__list" >
               <li class="g-nav__item ">
-                <a class="g-nav__link " href="./index.html#top">HOME</a>
+                <a class="g-nav__link "  href="./">HOME</a>
               </li>
               <li class="g-nav__item ">
                 <a class="g-nav__link " href="./works.html">WORKS</a>
@@ -34,34 +36,38 @@
                 <a class="g-nav__link " href="./about.html">ABOUT</a>
               </li>
               <li class="g-nav__item ">
-                <a class="g-nav__link " href="./index.html#contact">CONTACT</a>
+                <a id="tocontact" class="g-nav__link " href="./#contact">CONTACT</a>
               </li>
           </ul>
        </nav>
     </header>
 
+
           <div class="mask"></div>
 
             <main data-barba="wrapper" data-barba-namespace="common">
-             <div data-barba="container">
+             <div data-barba="container" class="common-container">
 
                  <section class="common-hero" id="about-hero">
-                <div class="go-back__wrap"><a class="go-back" href="./index.html#about"><i class="fa-solid fa-arrow-left-long"></i></a></div>
+                  
+                <div class="go-back__wrap">
+                  <a class="go-back" href="./#about"><i class="fa-solid fa-arrow-left-long"></i></a>
+                </div>
                     <div class="section__inner">
                     <div class="section__copy-wrap">
-
                       <h2 class="section__copy">About Me</h2>
                       <span class="section__border"></span><br>
                       <span class="section__border"></span><br>
                       <h3 class="section__sub-copy">web Site /<br>
                       web application.
                      </h3>
-                     <button  class="link-btn link-btn--bg"><a href="about.html">READ MORE</a></button>
-
-                    </div>
-                    <div class="section__img-wrap">
-                    </div>
+                     <button  class="link-btn link-btn--bg"><a >READ MORE</a></button>
                       </div>
+                      <div class="section__img-wrap">
+                      </div>
+                    </div>
+                 
+
                    
                   </section>
 
@@ -205,10 +211,10 @@
 
     </div>
     <!-- about-bg -->
-    <footer class="footer">
-        <div class="footer__inner">
+    <footer class="footer-about">
+        <div class="footer-about__inner">
             <p><a href="mailto:">marshall3594@gmail.com</a></p>
-            <div class="footer__icon">
+            <div class="footer-about__icon">
                 <a href="https://twitter.com/yoshisuga4"><i class="fab fa-twitter"></i></a>
                 <a href="https://codepen.io/yoshisuga"><i class="fab fa-codepen"></i></a>
                 <a href="https://github.com/yoshiyuksuganuma/"><i class="fab fa-github"></i></a>
@@ -217,6 +223,7 @@
         </div>
     </footer>
 
+    <!-- <div class="" id="cursor"></div> -->
 
                    
              </div>
@@ -226,12 +233,11 @@
             <script src="js/script.js" defer></script>
             <script src="js/barba.js" defer></script>
             <script src="js/progressbar.js"></script>
+
             <script src="https://polyfill.io/v3/polyfill.min.js?features=es6&default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
             <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.6/dist/barba.umd.min.js" crossorigin=""></script>
             <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
-
-
-          
-<script src="jquery.lineProgressbar.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js" integrity="sha512-XOpdFagEEv9XMxN/2EdvFL/PfGtFDjX+AkRznsFHDtdC05YWdkMnz5JZUfrbnEabOQaMc7YNTl2xPbOu3J858Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>
