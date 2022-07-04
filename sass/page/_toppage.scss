@@ -7,7 +7,7 @@
 .hero {
     position: relative;
     &__moon {
-        transition: all .4s  cubic-bezier(0.1, 0.5, 0.7, 0.3);
+        transition:  all .6s ease-in-out,transform .6s linear 0s;
 
     position: relative;
     opacity: 0;
@@ -16,21 +16,21 @@
     right: -600px;
     }
     }
+     
     &__moon-wrap {
     overflow: hidden;
-    width: 51%;
+    width: 54%;
     position: absolute;
     top: 50%;
     transform: translatey(-50%);
-    right: 9%;
+    right:7%;
     transition: all .6s ease-in-out;
     @include g.sp {
-    top: auto;
-    transform: none;
+    top: 33vh;
+     left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
     right: auto;
-    position: static;
-    width: 100%;
-    transform: translatey(15%);
     }
     }
     &__tit {
@@ -43,12 +43,13 @@
     transition: all .5s  ease-out;
     transition-delay: .1s;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 65%;
     opacity: 0;
     transform: translateX(50%);
+    text-shadow: 3px 5px 12px rgba(0,0,0, 0.3);
     @include g.sp {
-        top: 30%;
+        top: 33%;
         left: 50%;
         transform: none;
 
@@ -74,52 +75,84 @@
     }
 
 }
-  
+ 
  
 .pararaxArea {
     position: fixed;
-    // background-color: transparent;
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    transform: translateX(16%);
+    @include g.sp {
+    height: 65vh;
+    transform: translateX(0);
+    };
     .pararaxItem {
       position: absolute;
      border-radius: 50%;
       opacity: .5;
       &:nth-child(1) {
-        width: 55%;
-        height: 100%;
+        width: 1400px;
+        height: 120%;
         background-color: rgba(244, 244, 244, 0.09);
         transition: transform 1s linear .008s;
+        @include g.sp {
+            height: 300px;
+            width: 300px;
+        }
       }
       &:nth-child(2) {
-        width: 50%;
-        height: 90%;
+        width: 1200px;
+        height: 110%;
         background-color: rgba(214, 218, 218, 0.11);
         transition: transform .8s linear .004s;
+        @include g.sp {
+            height: 650px;
+            width:700px;
+        }
       }
       &:nth-child(3) {
-        width: 45%;
-        height: 85%;
+        width: 1000px;
+        height: 90%;
         background-color: rgba(#eff6f6, 0.15);
         transition: transform .6s linear 0s;
+        @include g.sp {
+            height: 550px;
+            width: 600px;
+        }
       }
+      &:nth-child(4) {
+        width: 800px;
+        height: 72%;
+        background-color: rgba(#eff6f6, 0.1);
+        transition: transform .6s linear 0s;
+        @include g.sp {
+            height: 450px;
+            width: 500px;
+        }
+      }
+      &:nth-child(5) {
+        width: 90vw;
+        height: 90vh;
+        background-image: url('../image/dot.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 1.4s linear 0s;
+        @include g.sp {
+            height: 450px;
+            width: 500px;
+        }
+      }
+       
     }
   
-    .centerObj {
-      position: absolute;
-      z-index: 100;
-      width: 80px;
-      height: 80px;
-      
-      img {
-        width: 100%;
-      }
-    }
+    
   }
+ 
+
+   
 
 
 

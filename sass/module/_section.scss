@@ -7,14 +7,13 @@
   position: relative;
      
    &__number {
-   
+    
     font-size: 15.5rem;
     font-family: april;
     font-weight: bold;
     letter-spacing: 5px;
-    transform: translatey(200px);
+     transform: translatey(200px);
     transition: transform .3s ease-out;
-    transition-delay: .5s;
 
    }
    &__number-wrap {
@@ -129,7 +128,9 @@
       position: relative;
       z-index: 2;
       transition: all .6s ease-in-out;
-    
+      backface-visibility:hidden;
+      perspective: 1000; 
+      transform:translate3d(0,0,0);
       }
 
 
@@ -140,6 +141,9 @@
       margin-top: 3%;
       transition: all .6s ease-in-out;
       transition-delay: .2s;
+      @include g.sp {
+        font-size: 5rem;
+      }
     
       }
 }//section

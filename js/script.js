@@ -3,13 +3,14 @@ $(function () {
   function parallax() {
  // パララックスのターゲット取得
  const target = document.getElementsByClassName('js-parallax');
+  
  // パララックスを行うエリア
  const activeArea = document.getElementById('fullpage');
  // ウィンドウの中心の取得
  const xCenter = window.innerWidth / 2;
  const yCenter = window.innerHeight / 2;
  // パララックスで移動させる距離
- const parallaxVal = 10; //中心からマウスの距離の10分１移動
+ const parallaxVal = 16; //中心からマウスの距離の10分１移動
 
  // マウスがパララックスエリアに入った時のイベント
  activeArea.addEventListener('mousemove', (e) => {
@@ -18,8 +19,11 @@ $(function () {
    const y = (yCenter - e.pageY) / parallaxVal;
    // パララックスさせる要素にstyleの指定
    for (var i = 0; i < target.length; i++) {
-     target[i].style.transform = `translate(${-x}px, ${-y}px)`;
+     target[i].style.transform = `translate(${x}px, ${y}px)`;
    }
+   
+
+    
  });
 }
 
@@ -389,8 +393,13 @@ $('#fullpage').fullpage({
 
       $('.works .section__copy-inner').addClass('hero__copy-efe');
       $('.works .section__img-cover').addClass('img-cover-efe');
-      $('.works .section__number').addClass('number-efe');
+    
     },150);
+
+    setTimeout(function() {
+      $('.works .section__number').addClass('number-efe');
+
+    },650);
 
     } else if(index == 2 && direction =='down') {
      
@@ -399,13 +408,17 @@ $('#fullpage').fullpage({
         $('.works .section__copy-inner').removeClass('hero__copy-efe');
         $('.works .section__img-cover').removeClass('img-cover-efe');
        $('.works .section__number').removeClass('number-efe');
-        },350);
+        },500);
 
         setTimeout(function() {
           $('.about .section__copy-inner').addClass('hero__copy-efe');
       $('.about .section__img-cover').addClass('img-cover-efe');
-      $('.about .section__number').addClass('number-efe');
         },150);
+      setTimeout(function() {
+        $('.about .section__number').addClass('number-efe');
+
+      },650);
+
     } else if(index == 2 && direction =='up') {
       $('#hero-js').addClass('link-current');
       $('.hero .section__copy-inner').addClass('hero__copy-efe');
@@ -417,13 +430,16 @@ $('#fullpage').fullpage({
         $('.works .section__img-cover').removeClass('img-cover-efe');
       $('.works .section__number').removeClass('number-efe');
 
-        },350);
+        },500);
 
      
     } else if(index == 3 && direction =='down') {
       $('.contact .section__copy-inner').addClass('hero__copy-efe');
       $('.contact .section__img-cover').addClass('img-cover-efe');
-      $('.contact .section__number').addClass('number-efe');
+      setTimeout(function() {
+        $('.contact .section__number').addClass('number-efe');
+
+      },650);
       if($win.innerWidth() > 769) {
        $('.footer').addClass('is-show');
        $('.scrollbar').hide();
@@ -434,7 +450,7 @@ $('#fullpage').fullpage({
       $('.about .section__img-cover').removeClass('img-cover-efe');
       $('.about .section__number').removeClass('number-efe');
 
-      },350);
+      },500);
 
     } else if(index == 3 && direction =='up') {
       setTimeout(function() {
@@ -442,14 +458,18 @@ $('#fullpage').fullpage({
         $('.about .section__img-cover').removeClass('img-cover-efe');
       $('.about .section__number').removeClass('number-efe');
 
-        },350);
+        },500);
 
         setTimeout(function() {
           $('.works .section__copy-inner').addClass('hero__copy-efe');
           $('.works .section__img-cover').addClass('img-cover-efe');
-      $('.works .section__number').addClass('number-efe');
 
           },150);
+
+          setTimeout(function() {
+            $('.works .section__number').addClass('number-efe');
+    
+          },650);
      
     } else if(index == 4 && direction =='up') {
       setTimeout(function() {
@@ -462,14 +482,17 @@ $('#fullpage').fullpage({
         $('.contact .section__img-cover').removeClass('img-cover-efe');
       $('.contact .section__number').removeClass('number-efe');
 
-        },350);
+        },500);
     
       setTimeout(function() {
       $('.about .section__copy-inner').addClass('hero__copy-efe');
       $('.about .section__img-cover').addClass('img-cover-efe');
-      $('.about .section__number').addClass('number-efe');
 
       },150);
+      setTimeout(function() {
+        $('.about .section__number').addClass('number-efe');
+
+      },650);
     }
 
     
@@ -517,30 +540,53 @@ $('#fullpage').fullpage({
 
   //ハンバーガーボタン、メニュー
   $('.burger-btn').on('click', function() {
-    $('.burger-btn__close-bar').fadeToggle('slow');
-    $('.g-nav').toggleClass('m-active');
-    $('.g-nav__link').toggleClass('link-active');
-    $('.burger-btn__bg').toggleClass('bg-efe');
     
+    if($('.g-nav').hasClass('m-active')) {
+     $('.burger-btn__close-bar').fadeOut('fast');
+     $('.g-nav__link').removeClass('link-active');
+
+      setTimeout(function(){
+      $('.g-nav').removeClass('m-active');
+      $('.burger-btn__bg').removeClass('bg-efe');
+      },250);
+
+    } else {
+
+      $('.burger-btn__close-bar').fadeIn('slow');
+      $('.g-nav').addClass('m-active');
+      $('.burger-btn__bg').addClass('bg-efe');
+
+      setTimeout(function(){
+      $('.g-nav__link').addClass('link-active');
+      },300);
+
+      }
 
 
+
+    
 });
-$win.resize(function() {
-    if ($win.width() > 1199) {
-        $('.g-nav').removeClass('m-active');
-        $('.burger-btn__bar').removeClass('bar-active');
-    }
-});
+
 
 $('.g-nav__link').on('click',function(){
-  setTimeout(function(){
-    $('.burger-btn__close-bar').fadeOut('slow');
-  $('.g-nav').removeClass('m-active');
+  new Promise((resolve) => {
+    //秒後に実行する処理
+    setTimeout(() => {
   $('.g-nav__link').removeClass('link-active');
-  $('.burger-btn__bg').removeClass('bg-efe');
-  $('.footer').addClass('is-show');
-  $('.scrollbar').hide();
-},900);   
+      //無事処理が終わったことを伝える
+      resolve();
+    }, 500);
+  }).then(() => {
+    setTimeout(() => {
+
+    // 処理が無事終わったことを受けとって実行される処理
+    $('.burger-btn__close-bar').fadeOut('fast');
+    $('.g-nav').removeClass('m-active');
+    $('.burger-btn__bg').removeClass('bg-efe');
+  }, 300);
+  });
+ 
+   
 
 });
 
@@ -570,11 +616,12 @@ barba.init({
       // update the menu based on user navigation
     },
     leave(data) {
-     
       
     },
-    afterEnter(data) {
-      st();
+     afterEnter(data) {
+      
+        st();
+       　
       const pathName = location.pathname;
       if(pathName === '/about.html') {
        bar();
@@ -594,21 +641,11 @@ barba.init({
       
       full();
       parallax();
-      
     
-      
-     
     
     },
-    beforeEnter(data) {
+    
   
-     $.fn.fullpage.destroy('all');
-    
-
-    },
-    enter(data) {
-      
-    }
    
   }
 ],
@@ -624,24 +661,28 @@ transitions: [
        height: 100 + 'vh',
        width: 63 + 'vw',
       x: 0,
-       duration: 0.4, 
+       duration: 0.6, 
        ease: "cublic.inOut"  
      },'same').to(" .main-bg",{
       background: '#080707',
-      duration: 0.9, 
+      duration: 0.6, 
       ease: "cublic.inOut"  
-     },'same').to(".section__number",{
-      opacity: 0,
-      duration: 0.9,
+     },'same').to(".section__number",{ //aho 
+      y: 300,
+      duration: 0.6,
       ease: "cublic.inOUt"
      },'same').to("#fp-nav",{
       x: -300,
-      duration: 0.9,
+      duration: 0.6,
       ease: "cublic.inOUt"
      },'same').to(".link-btn",{
-      opacity: 0,
-      duration: 0.9,
+      y: 300,
+      duration: 0.6,
       ease: "cublic.inOUt"
+     },'same').to("#js-parallaxArea", {
+      opacity: 0,
+       duration: 0.6, 
+       ease: "cublic.inOut"  
      },'same');
     }
     if($win.innerWidth() <= 768) {
@@ -651,38 +692,42 @@ transitions: [
       height: 60 + 'vh',
       y: 0,
       margin: 0,
-       duration: 0.4, 
+       duration: 0.6, 
        ease: "cublic.inOut"  
      },'same').to(" .main-bg",{
       background: '#080707',
-      duration: 0.9, 
+      duration: 0.6, 
       ease: "cublic.inOut"  
      },'same').to(".section__number",{
-      opacity: 0,
-      duration: 0.9,
+      y: 300,
+      duration: 0.6,
       ease: "cublic.inOUt"
      },'same').to("#fp-nav",{
       y: 200 ,
-      duration: 0.9,
+      duration: 0.6,
       ease: "cublic.inOUt"
      },'same').to(".link-btn",{
-      opacity: 0,
-      duration: 0.9,
+      y: 300,
+      duration: 0.6,
       ease: "cublic.inOUt"
+     },'same').to("#js-parallaxArea", {
+      opacity: 0,
+       duration: 0.6, 
+       ease: "cublic.inOut"  
      },'same');
 
     }
     },
 
-
+    // commonページへ入る前の処理
     beforeEnter() {
       gsap.fromTo(".go-back",{
-        left: -300 + 'px',
+        left: -200 + 'px',
         },  {
           left: 0.3 + '%', 
-          duration: 0.3, 
+          duration: 0.2, 
           ease: "cublic.inOut"  
-        },'-3');
+        });
       
     },
 
@@ -701,12 +746,16 @@ transitions: [
        duration: 0.4, 
        ease: "sine.inOut"  
      },'same').to(".go-back", {
-       left: -500 + 'px',
-      duration: 0.5, 
+       left: -200 + 'px',
+      duration: 0.4, 
       ease: "cublic.inOut"  
-    },'same').to(".common-hero", {
+    },'same').to(".section__copy-inner-common", { 
+      x: -400,
+     duration: 0.4, 
+     ease: "cublic.inOut"  
+   },'same').to(".common-hero", {
       background: 'linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16)',
-       duration: 0.9, 
+       duration: 0.4, 
        ease: "cublic.inOut"  
      },'same');
     }
@@ -722,11 +771,19 @@ transitions: [
        ease: "sine.inOut"  
      },'same').to(".go-back", {
        left: -500 + 'px',
-      duration: 0.5, 
+      duration: 0.4, 
+      ease: "cublic.inOut"  
+    },'same').to(".section__copy-inner-common", { //スマホも忘れず
+      x: -400,
+     duration: 0.4, 
+     ease: "cublic.inOut"  
+   },'same').to(".section-copy-inner", {
+      opacity: 0,
+      duration: 0.4, 
       ease: "cublic.inOut"  
     },'same').to(".common-hero", {
       background: 'linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16)',
-       duration: 0.9, 
+       duration: 0.4, 
        ease: "cublic.inOut"  
      },'same');
     }
@@ -737,13 +794,19 @@ transitions: [
 
    afterEnter() {
     if($win.innerWidth() >= 769) {
-    gsap.to("#fp-nav",{
+      const tl = gsap.timeline();    
+    tl.to("#fp-nav",{
       left: 0.7 + '%',
-    });
+    },'same').fromTo(".pararaxArea",{
+      opacity: 0,
+      },{
+      opacity: 1,
+      duration: 1.2, 
+       ease: "cublic.inOut"  
+    },'same');
   }
   
   
-
     $('#hero-js').addClass('link-current');
     $('.hero .section__copy-inner').addClass('hero__copy-efe');
     $('.hero__tit').addClass('hero__tit-efe');
@@ -754,6 +817,7 @@ transitions: [
     $('.about .section__number').addClass('number-efe');
     $('.contact .section__copy-inner').addClass('hero__copy-efe');
     $('.contact .section__img-cover').addClass('img-cover-efe');
+   
    }
 
    

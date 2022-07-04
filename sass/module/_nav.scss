@@ -29,7 +29,7 @@
   transform: translateY(-100%);
   display: block;
   transition: transform .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  transition-delay: .4s;
+  
   position: relative;
   z-index: 999999;
   }
@@ -106,15 +106,16 @@
 
 .link-active {
   transform: translate(0);
+  // transition-delay: .4s;
 }
 .m-active {
+  // transition-delay: .4s;
 
   visibility: visible;
   opacity: 1;
   transition: all .5s ease-out;
+
 }
 
-.m-active2 {
-  transform: translateY(-1200px);
-}
+
  

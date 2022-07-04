@@ -127,6 +127,10 @@
       margin: 0!important;
       font-family: futura-pt-bold, sans-serif;
       font-weight: 600;
+      @include g.sp {
+        font-size: 3.2rem!important;
+      top: -38px!important;
+      }
      
   }
 

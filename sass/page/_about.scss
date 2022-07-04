@@ -3,6 +3,7 @@
 
 .about-bg {
     background-color: #212121;
+    padding-top: 5%;
 }
 
 .about__sec-tit {
@@ -41,9 +42,9 @@
     &__txt {
         color: #fff;
         font-size: 1.7rem;
+        line-height: 2;
         @include g.sp {
             font-size: 2.5rem;
-            text-align: center;
         }
     }
     &__txt-wrap {
@@ -135,10 +136,16 @@
     &__year {
         font-size: 2rem;
         color: #d1cfcf;
+        @include g.sp {
+            font-size: 2.7rem;
+        }
     }
     &__name {
         font-size: 3.5rem;
         margin-right: 2%;
+        @include g.sp {
+            font-size: 4.2rem;
+        }
     }
     
 }
@@ -155,12 +162,18 @@
         align-items: center;
         a{
             margin-right: 3%;
+            @include g.sp {
+                margin-right: 8%;
+            }
         }
         a:last-of-type {
             margin: 0;
         }
         i {
             font-size: 3.5rem;
+            @include g.sp {
+                font-size: 5.4rem;
+            }
         }
     }
     &__inner {
@@ -172,6 +185,9 @@
     p {
         text-align: center;
         font-size: 3.5rem;
+        @include g.sp {
+            font-size: 4.4rem;
+        }
     }
 
 }
